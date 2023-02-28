@@ -1,0 +1,81 @@
+﻿@model Gestionale.Models.Task
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Task</h4>
+    <hr />
+    <dl class="table fl-table w-75">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDtask)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDtask)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescrizioneTask)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescrizioneTask)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataInizio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataInizio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataScadenza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataScadenza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utente.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Utente.Cognome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utente.Cognome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdStatoTask)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatoTask.Stato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority.LevelPriority)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

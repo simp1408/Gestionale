@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Gestionale.Models.Utente>
+
+@{
+    ViewBag.Title = "SearchName";
+}
+
+<h2>Risultati ricerca </h2>
+<hr/>
+
+<table class="table fl-table w-50">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDutente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cod_fisc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Citta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ruolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAssunzione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stipendio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdMansioni)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDutente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cod_fisc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Indirizzo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Citta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provincia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ruolo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Foto)*@
+            <img src="~/Content/img/@item.Foto" alt="avatar"
+                 class="img-fluid">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAssunzione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stipendio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mansioni.Descrizione)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IDutente }, new { @class = "btn", style = "background-color:#324960;color:white;" })
+            @Html.ActionLink("Details", "Details", new { id = item.IDutente }, new { @class = "btn", style = "background-color:orange;color:white;" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDutente }, new { @class = "btn", style = "background-color:red;color:white;" })
+        </td>
+    </tr>
+}
+
+</table>

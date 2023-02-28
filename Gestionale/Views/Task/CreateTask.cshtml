@@ -1,0 +1,98 @@
+﻿@model Gestionale.Models.Task
+
+@{
+    ViewBag.Title = "CreateTask";
+}
+
+<h2>Aggiungi Task</h2>
+<hr/>
+@if(ViewBag.ConfirmMessage != null)
+            {
+                <div class="alert alert-success">
+                    @ViewBag.ConfirmMessage
+                </div>
+            }
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal"style="margin-left:110px">
+      
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.IDtask, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IDtask, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDtask, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.DescrizioneTask, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DescrizioneTask, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DescrizioneTask, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataInizio, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DataInizio, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.DataInizio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataScadenza, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DataScadenza, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.DataScadenza, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 mt-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdUtente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.IdUtente, new SelectList(ViewBag.listaUtente, "Value", "Text"), "Dipendente", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.IdUtente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdStatoTask, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.IdStatoTask, new SelectList(ViewBag.listaStatoTask, "Value", "Text"), "Stato Task", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.IdStatoTask, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdPriority, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.IdPriority, new SelectList(ViewBag.listaPriority, "Value", "Text"), "Priority", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.IdPriority, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="submit" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

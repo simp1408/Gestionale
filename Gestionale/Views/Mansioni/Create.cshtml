@@ -1,0 +1,45 @@
+﻿@model Gestionale.Models.Mansioni
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="">Aggiungi nuova mansione</h2>
+<hr/>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal w-50" style="margin-left:110px">
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="aler alert-success">
+            @ViewBag.SuccessMessage;
+        </div>
+    }
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="subtitle text-center">Inserisci nouva mansione!</div>
+    <div class="input-container mt-4 d-flex justify-content-center align-items-center gap-3 mx-auto">
+        @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label text-white" })
+        @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control " } })
+        @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger " })
+
+    </div>
+
+
+    <div class=" d-flex justify-content-center align-items-center">
+        <input type="submit" value="Create" class="submit" />
+    </div>
+    @*col-md-2*@
+    @*col-md-10*@
+    @*col-md-offset-2*@
+</div>
+    }
+
+    <div>
+        @*@Html.ActionLink("Back to List", "Index")*@
+    </div>

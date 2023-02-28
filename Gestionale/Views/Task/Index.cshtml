@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Gestionale.Models.Task>
+
+@{
+    ViewBag.Title = "ListaTask";
+}
+
+@{
+    Html.RenderAction("PartialViewTask");
+}
+<h2>Lista delle Task</h2>
+<hr/>
+@*<p>
+        @Html.ActionLink("Aggiungi Task", "Create")
+    </p>*@
+@using (Html.BeginForm("TaskOne", "Task"))
+{
+    <table class="table fl-table w-50">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDtask)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescrizioneTask)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInizio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataScadenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utente.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utente.Cognome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatoTask.Stato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority.LevelPriority)
+            </th>
+          
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDtask)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescrizioneTask)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataInizio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataScadenza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utente.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utente.Cognome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatoTask.Stato)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority.LevelPriority)
+                </td>
+                <!--<td>-->
+                    @*<input type="submit" value="accetta incarico" class="btn" style="background-color: #324960;color:white" />*@
+                    @*@Html.ActionLink("Edit","Task",null,new { id = item.IDtask }, new { @class = "btn", style = "background-color:#324960;color:white;" })*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.IDtask }, new { @class = "btn", style = "background-color:red;color:white;" })*@
+                <!--</td>-->
+            </tr>
+        }
+
+
+
+
+    </table>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

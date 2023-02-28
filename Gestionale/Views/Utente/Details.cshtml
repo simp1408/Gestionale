@@ -1,0 +1,46 @@
+﻿@model Gestionale.Models.Utente
+
+<h3>Scheda dipendente:  @Model.Cognome @Model.Nome</h3>
+<br/>
+<div class="row"style="margin-left:110px">
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                @{ if (Model.Foto != null)
+                    {   <div class="text-center">
+                        <img src="~/Content/img/@Model.Foto" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 150px; height:150px; object-fit:cover;">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center">
+                        <img src="~/Content/img/" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                        </div>
+
+                    }
+                }
+                <h5 class="my-3">@Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Cognome) </h5>
+
+                <p class="text-muted mb-4 fw-bolder">Data Nascita: @Html.DisplayFor(model => model.DataNascita)</p>
+                <p class="text-muted mb-4 fw-bolder">Codice Fiscale: @Html.DisplayFor(model => model.Cod_fisc)</p>
+                <p class="text-muted mb-4 fw-bolder">Indirizzo: @Html.DisplayFor(model => model.Indirizzo)</p>
+                <p class="text-muted mb-4 fw-bolder">Citta: @Html.DisplayFor(model => model.Citta)</p>
+                <p class="text-muted mb-4 fw-bolder">Provincia: @Html.DisplayFor(model => model.Provincia)</p>
+                <p class="text-muted mb-4 fw-bolder">Email: @Html.DisplayFor(model => model.Email)</p>
+                <p class="text-muted mb-4 fw-bolder">Telefono: @Html.DisplayFor(model => model.Telefono)</p>
+                <p class="text-muted mb-4 fw-bolder">Ruolo: @Html.DisplayFor(model => model.Ruolo)</p>
+                <p class="text-muted mb-4 fw-bolder">Username: @Html.DisplayFor(model => model.Username)</p>
+                <p class="text-muted mb-4 fw-bolder">Password: @Html.DisplayFor(model => model.Password)</p>
+                <p class="text-muted mb-4 fw-bolder">Mansione: @Html.DisplayFor(model => model.Mansioni.Descrizione)</p>
+                <p class="text-muted mb-4 fw-bolder">Data assunzione: @Html.DisplayFor(model => model.DataAssunzione)</p>
+                <p class="text-muted mb-4 fw-bolder">Stipendio: @Html.DisplayFor(model => model.Stipendio)</p>
+                <div class="d-flex justify-content-center mb-2 gap-2">
+                    @*@Html.ActionLink("<", "Index", new { id = Model.IDutente }, new { @class = "btn", style = "background-color:darkgray; color:white;" })
+            @Html.ActionLink("Visita", "CreateById", "Visita", new { id = Model.IDutente }, new { @class = "btn", style = "background-color:#c8a2c8; color:white;" })
+            @Html.ActionLink("Modifica", "Edit", new { id = Model.IDutente }, new { @class = "btn", style = "background-color:cornflowerblue; color:white;" })*@
+
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,203 @@
+﻿@model Gestionale.Models.Utente
+
+
+
+
+<h3>Vuoi cancellare il Dipendente @Model.Cognome @Model.Nome ?</h3>
+<br/>
+
+<div style="margin-left:110px">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    @{ if (Model.Foto != null)
+                        { <div class="text-center">
+                                <img src="~/Content/img/@Model.Foto" alt="avatar"
+                                     class="rounded-circle img-fluid" style="width: 150px; height:150px; object-fit:cover;">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center">
+                                <img src="~/Content/img/" alt="avatar"
+                                     class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                            </div>
+
+                        }
+                    }
+                    <h5 class="my-3">@Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Cognome) </h5>
+
+                    <p class="text-muted mb-4 fw-bolder">Data Nascita: @Html.DisplayFor(model => model.DataNascita)</p>
+                    <p class="text-muted mb-4 fw-bolder">Codice Fiscale: @Html.DisplayFor(model => model.Cod_fisc)</p>
+                    <p class="text-muted mb-4 fw-bolder">Indirizzo: @Html.DisplayFor(model => model.Indirizzo)</p>
+                    <p class="text-muted mb-4 fw-bolder">Citta: @Html.DisplayFor(model => model.Citta)</p>
+                    <p class="text-muted mb-4 fw-bolder">Provincia: @Html.DisplayFor(model => model.Provincia)</p>
+                    <p class="text-muted mb-4 fw-bolder">Email: @Html.DisplayFor(model => model.Email)</p>
+                    <p class="text-muted mb-4 fw-bolder">Telefono: @Html.DisplayFor(model => model.Telefono)</p>
+                    <p class="text-muted mb-4 fw-bolder">Ruolo: @Html.DisplayFor(model => model.Ruolo)</p>
+                    <p class="text-muted mb-4 fw-bolder">Username: @Html.DisplayFor(model => model.Username)</p>
+                    <p class="text-muted mb-4 fw-bolder">Password: @Html.DisplayFor(model => model.Password)</p>
+                    <p class="text-muted mb-4 fw-bolder">Mansione: @Html.DisplayFor(model => model.Mansioni.Descrizione)</p>
+                    <p class="text-muted mb-4 fw-bolder">Data assunzione: @Html.DisplayFor(model => model.DataAssunzione)</p>
+                    <p class="text-muted mb-4 fw-bolder">Stipendio: @Html.DisplayFor(model => model.Stipendio)</p>
+                    <div class="d-flex justify-content-center mb-2 gap-2">
+                        @*@Html.ActionLink("<", "Index", new { id = Model.IDutente }, new { @class = "btn", style = "background-color:darkgray; color:white;" })
+                            @Html.ActionLink("Visita", "CreateById", "Visita", new { id = Model.IDutente }, new { @class = "btn", style = "background-color:#c8a2c8; color:white;" })
+                            @Html.ActionLink("Modifica", "Edit", new { id = Model.IDutente }, new { @class = "btn", style = "background-color:cornflowerblue; color:white;" })*@
+
+                    </div>
+                </div>
+            </div>
+
+            @*<h4>Utente</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IDutente)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IDutente)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cognome)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Cognome)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DataNascita)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DataNascita)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cod_fisc)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Cod_fisc)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Indirizzo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Indirizzo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Citta)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Citta)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Provincia)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Provincia)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefono)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ruolo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Ruolo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Username)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Password)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Foto)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Foto)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DataAssunzione)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DataAssunzione)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Stipendio)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Stipendio)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdMansioni)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IdMansioni)
+                    </dd>
+
+                </dl>*@
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn text-white"style="background-color:red"; /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>

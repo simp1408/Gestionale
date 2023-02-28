@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Gestionale.Models.Task>
+
+@{
+    ViewBag.Title = "_PartialViewTask";
+}
+
+
+<div class="card  mb-3 text-white mb-5" style="max-width: 18rem; background-color: #4FC3A1;">
+    <div class="card-header">TASK</div>
+    <div class="card-body">
+        <h5 class="card-title text-center">Numero totale delle Task: </h5>
+        <div class="text-center">@Model.Count()</div>
+    </div>
+</div>
+
+
+              
+             
